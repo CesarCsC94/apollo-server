@@ -95,7 +95,7 @@ const resolvers = {
             try{
                 //Revisar si el usuario ya esta registrado
                 const { email,password } = input;
-                const existeUsuario = await usuario.findOne({where:{id}});
+                const existeUsuario = await usuario.findOne({where:{email}});
                 
                 
                 if(existeUsuario){ 
@@ -165,7 +165,6 @@ const resolvers = {
                 }
                 
                 const result = await productoExistente.update(input);
-                console.log(input);
                 return productoExistente; 
             }catch(error){
                 return error;
